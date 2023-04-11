@@ -1,5 +1,6 @@
-import { StyleSheet } from 'react-native';
-import { colorLight, colorBlockDiscipline } from '../../config/styles';
+import { StyleSheet } from 'react-native'
+
+import { colorBlockDiscipline, colorLight, textH6 } from '../../config/styles'
 
 export const blockDisciplineStyles = StyleSheet.create({
     button: {
@@ -14,9 +15,7 @@ export const blockDisciplineStyles = StyleSheet.create({
     },
     text: {
         color: colorLight,
-        fontSize: 14,
+        fontSize: textH6,
         fontWeight: 'bold',
-        
-
     },
-});
+})

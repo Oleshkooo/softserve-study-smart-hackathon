@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { Text, View } from 'react-native'
 
-import { Button } from '../../components/button/Button'
+import { Button } from '../../components/Button/Button'
 
 import { styles } from './StartStyles'
 

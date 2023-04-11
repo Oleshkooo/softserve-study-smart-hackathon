@@ -1,8 +1,9 @@
+import { memo } from 'react'
 import { TextInput } from 'react-native'
 
 import { inputStyles } from './InputStyles'
 
-export const Input = ({ value, setValue, placeholder, password = false }) => {
+export const Input = memo(({ value, setValue, placeholder, password = false }) => {
     return (
         <TextInput
             style={inputStyles.input}
@@ -14,4 +15,4 @@ export const Input = ({ value, setValue, placeholder, password = false }) => {
             color="#ffffff"
         />
     )
-}
+})
