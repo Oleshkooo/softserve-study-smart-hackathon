@@ -1,12 +1,15 @@
 import { StyleSheet, View, Text } from 'react-native';
-import { Input } from './components/input/Input';
+
+const Stack
 
 export default function App() {
+
     return (
         <View style={styles.container}>
-            <Input placeholder="placeholder" />
+            <Start/>
         </View>
-    );
+    )
+
 }
 
 const styles = StyleSheet.create({
