@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { colorDark, colorLight } from '../../config/styles'
+import { getPixels } from '../../utils/getDp'
 
 export const buttonStyles = StyleSheet.create({
     button: {
@@ -7,7 +8,7 @@ export const buttonStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: 250,
-        paddingTop: 20,
+        paddingTop: 16,
         paddingBottom: 16,
         borderRadius: 10,
         backgroundColor: colorLight,

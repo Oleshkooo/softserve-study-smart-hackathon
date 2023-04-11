@@ -1,19 +1,16 @@
-import React from 'react';
-import {TextInput} from 'react-native';
-import {Input} from './InputStyle'
+import { useState } from 'react';
+import { StyleSheet, TextInput } from 'react-native';
+import { inputStyles } from './InputStyle';
 
-const Input = ({placeholder}) => {
-  const [text, onChangeText] = React.useState('');
+export const Input = ({ placeholder, password = false }) => {
+    const [text, setText] = useState('');
 
-  return (
-      <TextInput
-        style={styles.input}
-        onChangeText={onChangeText}
-        placeholder={placeholder}
-        value={text}
-      />
-  );
+    return (
+        <TextInput
+            style={inputStyles.input}
+            value={text}
+            onChangeText={setText}
+            placeholder={placeholder}
+        />
+    );
 };
-
-
-export default Input;
