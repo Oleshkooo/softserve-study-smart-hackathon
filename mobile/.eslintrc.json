@@ -1,0 +1,17 @@
+{
+    "env": {
+        "es2021": true
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "extends": ["universe/native"],
+    "rules": {
+        "indent": ["off", 4],
+        "no-console": "off",
+        "no-unused-vars": "off",
+        "no-eval": "error",
+        "no-use-before-define": "off",
+        "no-shadow": "off"
+    }
+}
