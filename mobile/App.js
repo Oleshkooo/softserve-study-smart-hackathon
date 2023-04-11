@@ -1,12 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, } from 'react-native';
+import { StyleSheet, View } from 'react-native'
 import { Button } from './components/button/Button'
 
 export default function App() {
-    return(
-         <View>
+    return (
+        <View style={styles.container}>
             <Button onPress={() => {}}>Some button</Button>
-         </View>
-        )
+        </View>
+    )
 }
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#000',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+})

@@ -1,21 +1,18 @@
-import { StyleSheet } from "react-native";
-
-
+import { StyleSheet } from 'react-native'
+import { colorDark, colorLight } from '../../config/styles'
 
 export const buttonStyles = StyleSheet.create({
     button: {
-        backgroundColor: colorDark,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 250,
+        paddingTop: 20,
+        paddingBottom: 16,
         borderRadius: 10,
-        width: "250px",
-
-        paddingTop: "16px",
-        paddingBottom: "16px",
-
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        backgroundColor: colorLight,
     },
     text: {
-        color: colorLight
-    }
+        color: colorDark,
+    },
 })
