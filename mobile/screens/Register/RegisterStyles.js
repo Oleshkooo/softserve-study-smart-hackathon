@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     inputsContainer: {
         flex: 1,
         alignItems: 'center',
-        top: 220,
+        top: 80,
         gap: 21,
     },
     title: {
@@ -25,6 +25,5 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         bottom: 90,
-        alignItems: 'center',
     },
 })

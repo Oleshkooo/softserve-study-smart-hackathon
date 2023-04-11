@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
+
 import { colorDark, colorLight } from '../../config/styles'
-import { getPixels } from '../../utils/getDp'
 
 export const buttonStyles = StyleSheet.create({
     button: {

@@ -1,5 +1,6 @@
-import { StyleSheet } from 'react-native';
-import { colorDark, colorLight } from '../../config/styles';
+import { StyleSheet } from 'react-native'
+
+import { colorLight, textH5 } from '../../config/styles'
 
 export const inputStyles = StyleSheet.create({
     input: {
@@ -9,12 +10,10 @@ export const inputStyles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 12,
         borderColor: colorLight,
-        fontSize: 16,
+        fontSize: textH5,
         alignContent: 'center',
         justifyContent: 'center',
-        color: "#222222",
+        color: '#222222',
         // placeholderTextColor: colorDark,
     },
-
-    
-});
+})

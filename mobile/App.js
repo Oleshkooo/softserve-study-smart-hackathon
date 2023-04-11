@@ -1,22 +1,32 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-const Stack
+import { LoginScreen } from './screens/Login/Login'
+import { RegisterScreen } from './screens/Register/Register'
+import { StartScreen } from './screens/Start/Start'
 
-export default function App() {
+const Stack = createNativeStackNavigator()
 
-    return (
-        <View style={styles.container}>
-            <Start/>
-        </View>
-    )
-
+const defaultScreenOptions = {
+    options: {
+        headerShown: false,
+    },
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#000000',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+const App = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name="Home" component={StartScreen} {...defaultScreenOptions} />
+                <Stack.Screen name="Login" component={LoginScreen} {...defaultScreenOptions} />
+                <Stack.Screen
+                    name="Register"
+                    component={RegisterScreen}
+                    {...defaultScreenOptions}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
+}
+
+export default App

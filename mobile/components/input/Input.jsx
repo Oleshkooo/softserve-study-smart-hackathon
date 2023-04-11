@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { StyleSheet, TextInput } from 'react-native';
-import { inputStyles } from './InputStyle';
+import { TextInput } from 'react-native'
+
+import { inputStyles } from './InputStyles'
 
 export const Input = ({ value, setValue, placeholder, password = false }) => {
     return (
@@ -10,8 +10,8 @@ export const Input = ({ value, setValue, placeholder, password = false }) => {
             onChangeText={setValue}
             placeholder={placeholder}
             secureTextEntry={password}
-            placeholderTextColor={'#ffffff'}
-            color={'#ffffff'}
+            placeholderTextColor="#ffffff"
+            color="#ffffff"
         />
-    );
-};
+    )
+}
