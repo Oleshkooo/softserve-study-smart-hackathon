@@ -1,8 +1,10 @@
+import BackButton from '../utils/BackButton';
 import classes from './SignUp.module.css'
 
 function SignUp() {
     return (
         <div className={classes.main}>
+            <BackButton />
             <h2>Реєстрація облікового запису</h2>
             <form className={classes.form}>
                 <div className={classes.fields}>

@@ -1,8 +1,10 @@
 import classes from './SignIn.module.css'
+import BackButton from '../utils/BackButton'
 
 function SignIn() {
     return (
         <div className={classes.main}>
+            <BackButton />
             <h2>Вхід в обліковий запис</h2>
             <form className={classes.form}>
                 <div className={classes.fields}>
