@@ -1,5 +1,5 @@
 import App from '@/App'
-import { disableConsole, googleAnalytics } from '@/utils'
+import { disableConsole } from '@/utils'
 import { disableReactDevTools } from '@fvilers/disable-react-devtools'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -24,7 +24,6 @@ root.render(
 )
 
 if (import.meta.env.NODE_ENV === 'production') {
-    googleAnalytics()
     disableReactDevTools()
     disableConsole()
 }
