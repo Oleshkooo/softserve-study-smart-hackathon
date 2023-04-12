@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native'
 
-import { colorDark, colorLight, textH3Display, textH4 } from '../../config/styles'
+import { colorBlack, colorWhite, textH3Display, textH4 } from '../../config/styles'
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: colorDark,
+        backgroundColor: colorBlack,
     },
     titleContainer: {
         flex: 1,
@@ -17,13 +17,13 @@ export const styles = StyleSheet.create({
     },
     title: {
         fontSize: textH3Display,
-        color: colorLight,
+        color: colorWhite,
         fontWeight: 'bold',
         textAlign: 'center',
     },
     subtitle: {
         fontSize: textH4,
-        color: colorLight,
+        color: colorWhite,
         textAlign: 'center',
     },
     buttonsContainer: {

@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native'
 
-import { colorDark, colorLight } from '../../config/styles'
+import { colorBlack, colorWhite } from '../../config/styles'
 
-export const buttonStyles = StyleSheet.create({
+export const styles = StyleSheet.create({
     button: {
         display: 'flex',
         justifyContent: 'center',
@@ -11,9 +11,9 @@ export const buttonStyles = StyleSheet.create({
         paddingTop: 16,
         paddingBottom: 16,
         borderRadius: 10,
-        backgroundColor: colorLight,
+        backgroundColor: colorWhite,
     },
     text: {
-        color: colorDark,
+        color: colorBlack,
     },
 })

@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native'
 
-import { colorDark, colorLight, textH1 } from '../../config/styles'
+import { colorBlack, colorWhite, textH1 } from '../../config/styles'
 
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colorDark,
+        backgroundColor: colorBlack,
     },
     inputsContainer: {
         flex: 1,
@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
         gap: 21,
     },
     title: {
-        color: colorLight,
+        color: colorWhite,
         fontSize: textH1,
         textAlign: 'center',
         padding: 20,

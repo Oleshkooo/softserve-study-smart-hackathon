@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react'
-import { Text, View } from 'react-native'
+import { useState } from 'react'
+import { Keyboard, Text, TouchableWithoutFeedback, View } from 'react-native'
 
 import { Button } from '../../components/Button/Button'
 import { Input } from '../../components/Input/Input'
@@ -12,30 +12,46 @@ export const RegisterScreen = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [patronymic, setPatronymic] = useState('')
-    const [studentTicket, setStudentTicket] = useState('')
-
-    const handleRegisterClick = useCallback(() => {
-        console.log(name, surname, email, password, patronymic, studentTicket)
-    }, [name, surname, email, password, patronymic, studentTicket])
+    const [university, setUniversity] = useState('')
+    const [speciality, setSpeciality] = useState('')
 
     return (
-        <View style={styles.container}>
-            <View style={styles.inputsContainer}>
-                <Text style={styles.title}>Реєстрація облікового запису</Text>
-                <Input value={email} setValue={setEmail} placeholder="Email" />
-                <Input value={password} setValue={setPassword} placeholder="Пароль" password />
-                <Input value={name} setValue={setName} placeholder="Ім'я" />
-                <Input value={surname} setValue={setSurname} placeholder="Прізвище" />
-                <Input value={patronymic} setValue={setPatronymic} placeholder="По-батькові" />
-                <Input
-                    value={studentTicket}
-                    setValue={setStudentTicket}
-                    placeholder="Номер студентського квитка"
-                />
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <View style={styles.container}>
+                <View>
+                    <Text style={styles.title}>Реєстрація облікового запису</Text>
+                    <Input value={email} setValue={setEmail} placeholder="Email" autoFocus />
+                    <Input
+                        value={password}
+                        setValue={setPassword}
+                        placeholder="Пароль"
+                        password
+                        autoFocus
+                    />
+                    <Input value={name} setValue={setName} placeholder="Ім'я" autoFocus />
+                    <Input value={surname} setValue={setSurname} placeholder="Прізвище" autoFocus />
+                    <Input
+                        value={patronymic}
+                        setValue={setPatronymic}
+                        placeholder="По-батькові"
+                        autoFocus
+                    />
+                    <Input
+                        value={university}
+                        setValue={setUniversity}
+                        placeholder="Університет"
+                        autoFocus
+                    />
+                    <Input
+                        value={speciality}
+                        setValue={setSpeciality}
+                        placeholder="Спеціальність"
+                    />
+                </View>
+                <View style={styles.buttonsContainer}>
+                    <Button>Зареєструватись</Button>
+                </View>
             </View>
-            <View style={styles.buttonsContainer}>
-                <Button onPress={handleRegisterClick}>Зареєструватись</Button>
-            </View>
-        </View>
+        </TouchableWithoutFeedback>
     )
 }

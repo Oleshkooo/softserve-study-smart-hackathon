@@ -1,8 +1,9 @@
 // colors
-export const colorLight = '#FFF'
-export const colorDark = '#000'
+export const colorWhite = '#FFF'
+export const colorBlack = '#000'
 export const colorSecondary = '#F1F1F1'
 export const colorSecondaryDark = '#666666'
+export const colorDark = '#121212'
 
 // text
 export const textH1Display = 40

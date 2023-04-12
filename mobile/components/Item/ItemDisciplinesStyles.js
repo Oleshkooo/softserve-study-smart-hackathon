@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-import { colorBlockDiscipline, colorLight, textH6 } from '../../config/styles'
+import { colorDark, colorWhite, textH5 } from '../../config/styles'
 
 export const blockDisciplineStyles = StyleSheet.create({
     button: {
@@ -10,12 +10,12 @@ export const blockDisciplineStyles = StyleSheet.create({
         width: 310,
         paddingTop: 16,
         paddingBottom: 16,
-        borderRadius: 10,
-        backgroundColor: colorBlockDiscipline,
+        borderRadius: 20,
+        backgroundColor: colorDark,
     },
     text: {
-        color: colorLight,
-        fontSize: textH6,
+        color: colorWhite,
+        fontSize: textH5,
         fontWeight: 'bold',
     },
 })
