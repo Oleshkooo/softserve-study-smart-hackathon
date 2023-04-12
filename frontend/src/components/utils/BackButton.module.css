@@ -1,0 +1,12 @@
+.back {
+    display: flex;
+    position: absolute;
+    top: 4vh;
+    left: 55px;
+    transition-duration: .2s;
+}
+
+.back:hover {
+    cursor: pointer;
+    filter: brightness(50%);
+}

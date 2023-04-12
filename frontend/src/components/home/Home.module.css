@@ -1,0 +1,35 @@
+.main {
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15vh;
+}
+
+.article {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons a {
+    padding: 12px 4vw;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    border: none;
+    transition-duration: .2s;
+    border: 2px solid white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.buttons a:hover {
+    color: white;
+    background-color: black;
+}

@@ -1,0 +1,53 @@
+.main {
+    margin-top: 4vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.fields input {
+    padding: 16px 24px;
+    width: 300px;
+    background-color: transparent;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid white;
+}
+
+.fields input:focus {
+    outline: 1px solid white;
+}
+
+.button {
+    padding: 16px 5vw;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    border: none;
+    transition-duration: .2s;
+    border: 2px solid white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
