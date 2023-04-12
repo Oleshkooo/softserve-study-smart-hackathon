@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 30%;
+}
+
+.container h3 {
+    font-size: 30px;
+    margin: 25px 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.form span {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form input {
+    padding: 16px 24px;
+    width: 80%;
+    background-color: transparent;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid white;
+}
+
+.form input:focus {
+    outline: 1px solid white;
+}
+
+.form input[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.form input[type=radio] + img {
+    cursor: pointer;
+}
+
+.button {
+    padding: 16px 5vw;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    border: none;
+    transition-duration: .2s;
+    border: 2px solid white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+
+.star {
+    background-color: transparent;
+    font-size: 30px;
+    border: none;
+    color: white;
+    transition-duration: .2s;
+}
+
+.on {
+    color: #F7D046;
+}
+
+.off {
+    color: #ffffff;
+}
