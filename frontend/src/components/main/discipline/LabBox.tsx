@@ -8,6 +8,10 @@ const LabBox: FC<Labs> = (data) => {
 
     function handleChangeLab() {
         DataCtx?.setSelectedLab(data.data)
+        DataCtx?.setTeacherRating(data.data.points)
+        DataCtx?.setStudentRating(data.data.rating)
+        DataCtx?.setStudentHover(0);
+        DataCtx?.setTeacherHover(0)
     }
 
     return(
