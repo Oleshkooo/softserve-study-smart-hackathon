@@ -18,6 +18,7 @@ export class ApiError implements IApiError {
     }
 
     static internalServerError(error: ErrorType) {
+        console.error(error)
         return new ApiError({
             status: STATUS.INTERNAL_SERVER_ERROR,
             message: ERROR.INTERNAL_SERVER,

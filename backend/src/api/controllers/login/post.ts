@@ -16,7 +16,10 @@ export const post: RequestHandler = async (req, res) => {
         }
 
         const user = await UserModel.findOne({ email })
-        const isPasswordCorrect: boolean = await user.isPasswordCorrect(password)
+        const isPasswordCorrect = await (() => {
+            if (user === null) return false
+            return user.isPasswordCorrect(password)
+        })()
 
         if (!isPasswordCorrect) {
             const response = new ApiError({
