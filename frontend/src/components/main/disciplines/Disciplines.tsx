@@ -1,6 +1,7 @@
-import { FC } from 'react'
+import {useContext, useEffect} from 'react'
 import DisciplineBox from './DisciplineBox'
 import classes from './Disciplines.module.css'
+import {contextDb} from "@/components/main/Main";
 
 interface Labs extends JSX.IntrinsicAttributes {
     name: string
@@ -128,11 +129,14 @@ const dummy_disciplines = [
     },
 ]
 
+
 function Disciplines() {
+    const DiscCtx = useContext(contextDb)
+
     return (
         <div className={classes.container}>
-            <h1>Дисципліни</h1>
-            {dummy_disciplines.map(item => (
+            <h2>Дисципліни</h2>
+            {DiscCtx?.data.map(item => (
                 <DisciplineBox data={item} />
             ))}
         </div>

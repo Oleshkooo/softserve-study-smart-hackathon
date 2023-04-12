@@ -1,8 +1,11 @@
 .container {
-    padding: 12px;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    width: 25%;
+    width: 30%;
+}
+
+.container h2 {
+    font-size: 30px;
 }
 
