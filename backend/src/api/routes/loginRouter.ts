@@ -4,6 +4,6 @@ import { post } from '@/api/controllers/login'
 
 const loginRouter: Router = Router()
 
-loginRouter.get('/', post)
+loginRouter.post('/', post)
 
 export { loginRouter }

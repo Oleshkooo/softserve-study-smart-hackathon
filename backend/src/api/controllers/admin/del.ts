@@ -3,11 +3,11 @@ import type { RequestHandler } from 'express'
 import { ApiError, ApiSuccess, STATUS } from '@/api/responses'
 import { UserModel } from '@/Database/models/User'
 
-export const post: RequestHandler = async (req, res) => {
+export const del: RequestHandler = async (req, res) => {
     try {
-        const { email, password } = req.body
+        const { email } = req.body
 
-        if (email === undefined || password === undefined) {
+        if (email === undefined) {
             const response = new ApiError({
                 status: STATUS.BAD_REQUEST,
                 message: 'Missing required fields',
@@ -15,21 +15,21 @@ export const post: RequestHandler = async (req, res) => {
             return res.status(response.status).send(response)
         }
 
-        const user = await UserModel.findOne({ email })
-        const isPasswordCorrect: boolean = await user.isPasswordCorrect(password)
+        const found = UserModel.findOne({ email })
 
-        if (!isPasswordCorrect) {
+        if (found === null || found === undefined) {
             const response = new ApiError({
-                status: STATUS.UNAUTHORIZED,
-                message: 'Email or password is incorrect',
+                status: STATUS.BAD_REQUEST,
+                message: 'User not found',
             })
             return res.status(response.status).send(response)
         }
 
+        await UserModel.deleteOne({ email })
+
         const response = new ApiSuccess({
             status: STATUS.OK,
-            message: 'Success',
-            data: user,
+            message: 'User deleted',
         })
         return res.status(response.status).send(response)
     } catch (error) {

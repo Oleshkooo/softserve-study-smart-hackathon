@@ -1,7 +1,7 @@
 import { server } from './server'
 
 import { Database } from '@/Database'
-import { mainListen } from '@/api/controllers'
+import { mainListen } from '@/api/controllers/main'
 import { PORT } from '@/config'
 
 const start = async () => {

@@ -26,13 +26,13 @@
 import { type IDiscipline } from './University';
 export interface IUser {
     _id: string;
-    email: string;
-    password: string;
-    name: string;
     perms: 'admin' | 'teacher' | 'student';
-    university_id: string;
-    speciality_id: string;
-    disciplines: IDiscipline[];
+    email?: string;
+    password?: string;
+    name?: string;
+    university_id?: string;
+    speciality_id?: string;
+    disciplines?: IDiscipline[];
     isPasswordCorrect: (password: string) => boolean | Promise<boolean>;
 }
 export declare const UserModel: import("mongoose").Model<any, {}, {}, {}, any, any>;

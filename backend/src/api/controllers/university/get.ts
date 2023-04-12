@@ -1,12 +1,22 @@
 import type { RequestHandler } from 'express'
 
-import { UniversityModel, type IUniversity } from '@/Database/models'
 import { ApiError, ApiSuccess, STATUS } from '@/api/responses'
+import { UniversityModel, type IUniversity } from '@/Database/models'
 
 export const get: RequestHandler = async (req, res) => {
     try {
-        const universities = await UniversityModel.find().lean()
-        const data = universities.find((item: IUniversity) => item.abbr === 'LPNU')
+        const { id, abbr } = req.body
+
+        const data = await (async () => {
+            if (id !== undefined) {
+                return await UniversityModel.find({ id }).lean()
+            }
+            if (abbr !== undefined) {
+                return await UniversityModel.find({ abbr }).lean()
+            }
+            return await UniversityModel.find().lean()
+        })()
+
         const response = new ApiSuccess<IUniversity[]>({
             status: STATUS.OK,
             message: 'Success',

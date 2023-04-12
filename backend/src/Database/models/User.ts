@@ -4,13 +4,13 @@ import { DisciplineSchema, type IDiscipline } from './University'
 
 export interface IUser {
     _id: string
-    email: string
-    password: string
-    name: string
     perms: 'admin' | 'teacher' | 'student'
-    university_id: string
-    speciality_id: string
-    disciplines: IDiscipline[]
+    email?: string
+    password?: string
+    name?: string
+    university_id?: string
+    speciality_id?: string
+    disciplines?: IDiscipline[]
 
     isPasswordCorrect: (password: string) => boolean | Promise<boolean>
 }
@@ -18,15 +18,18 @@ export interface IUser {
 const UserSchema = new Schema<IUser>({
     email: {
         type: String,
-        required: true,
+        required: false,
+        default: '',
     },
     password: {
         type: String,
-        required: true,
+        required: false,
+        default: '',
     },
     name: {
         type: String,
-        required: true,
+        required: false,
+        default: '',
     },
     perms: {
         type: String,
@@ -34,15 +37,18 @@ const UserSchema = new Schema<IUser>({
     },
     university_id: {
         type: String,
-        required: true,
+        required: false,
+        default: '',
     },
     speciality_id: {
         type: String,
-        required: true,
+        required: false,
+        default: '',
     },
     disciplines: {
         type: [DisciplineSchema],
-        required: true,
+        required: false,
+        default: [],
     },
 })
 
