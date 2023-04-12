@@ -19,9 +19,10 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
 }
 
-.fields input {
+.fields input, .fields select {
     padding: 16px 24px;
     width: 300px;
     background-color: transparent;
@@ -32,6 +33,10 @@
 
 .fields input:focus {
     outline: 1px solid white;
+}
+
+.fields select option {
+    background-color: black;
 }
 
 .button {

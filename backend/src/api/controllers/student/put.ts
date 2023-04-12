@@ -5,14 +5,15 @@ import { UserModel, type IUser } from '@/Database/models/User'
 
 export const put: RequestHandler = async (req, res) => {
     try {
-        const { studentEmail, teacherEmail, labName, rating, message } = req.body
+        const { studentEmail, teacherEmail, labName, rating, message, points } = req.body
 
         if (
             studentEmail === undefined ||
             teacherEmail === undefined ||
             labName === undefined ||
             rating === undefined ||
-            message === undefined
+            message === undefined ||
+            points === undefined
         ) {
             const response = new ApiError({
                 status: STATUS.BAD_REQUEST,
@@ -32,6 +33,7 @@ export const put: RequestHandler = async (req, res) => {
                 $set: {
                     'disciplines.$[discipline].labs.$[lab].rating': rating,
                     'disciplines.$[discipline].labs.$[lab].message': message,
+                    'disciplines.$[discipline].labs.$[lab].points': points,
                 },
             },
             {

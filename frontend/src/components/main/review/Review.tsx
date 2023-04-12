@@ -1,6 +1,7 @@
 import classes from './Review.module.css'
 import { useContext, useEffect, useState } from 'react'
 import { contextDb } from '../Main'
+import { putStudentRating } from '@/components/API'
 
 function Review() {
     const DataCtx = useContext(contextDb)
@@ -9,13 +10,38 @@ function Review() {
         e.preventDefault()
 
         console.log(DataCtx?.teacherRating);
+
+        e.preventDefault()
+
+        const data = {
+            studentEmail: DataCtx?.selectedStudent.email,
+            teacherEmail: DataCtx?.data.email,
+            labName: DataCtx?.selectedLab.name,
+            rating: DataCtx?.selectedLab.rating,
+            message: DataCtx?.selectedLab.message,
+            points: DataCtx?.teacherRating
+        }
+
+        putStudentRating(data)
+        .then(res => {})
+        .catch(err => {})
     }
 
     function handleStudentSubmit(e) {
         e.preventDefault()
 
-        console.log(DataCtx?.studentRating);
-        console.log(e.target.comment.value);
+        const data = {
+            studentEmail: DataCtx?.data.email,
+            teacherEmail: DataCtx?.selectedDiscipline.teacherEmail,
+            labName: DataCtx?.selectedLab.name,
+            rating: DataCtx?.studentRating,
+            message: e.target.comment.value,
+            points: DataCtx?.selectedLab.points
+        }
+
+        putStudentRating(data)
+        .then(res => {})
+        .catch(err => {})
     }
 
     return (
@@ -96,6 +122,7 @@ function Review() {
                             name={'comment'}
                             type={'text'}
                             placeholder={'Ваш коментар...'}
+                            defaultValue={DataCtx?.selectedLab.message}
                             required
                         />
                         <button className={classes.button} type={'submit'}>
@@ -105,8 +132,8 @@ function Review() {
                 ) : (
                     <>
                         <p>
-                            {DataCtx?.selectedLab.msg
-                                ? `Коментар студента: ${DataCtx?.selectedLab.msg}`
+                            {DataCtx?.selectedLab.message
+                                ? `Коментар студента: ${DataCtx?.selectedLab.message}`
                                 : `Студент ще не дав коментаря на це завдання`}
                         </p>
                     </>
