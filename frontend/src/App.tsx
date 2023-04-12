@@ -1,9 +1,9 @@
+import { createContext, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './components/home/Home'
+import Main from './components/main/Main'
 import SignIn from './components/signin/SignIn'
 import SignUp from './components/signup/SignUp'
-import Main from './components/main/Main'
-import { createContext, useState } from 'react'
 
 export interface Labs extends JSX.IntrinsicAttributes {
     name: string
@@ -94,16 +94,16 @@ export const App = () => {
     }
 
     return (
-      <contextDb.Provider value={CtxData}>
-        <Routes>
-            <Route path={'/start'} element={<Home />} />
-            <Route path={'/signup'} element={<SignUp />} />
-            <Route path={'/signin'} element={<SignIn />} />
-            <Route path={'/'} element={<Main />} />
-        </Routes>
-      </contextDb.Provider>
+        <contextDb.Provider value={CtxData}>
+            <Routes>
+                <Route path={'/start'} element={<Home />} />
+                <Route path={'/signup'} element={<SignUp />} />
+                <Route path={'/signin'} element={<SignIn />} />
+                <Route path={'/'} element={<Main />} />
+            </Routes>
+        </contextDb.Provider>
     )
 }
 
-export default App;
+export default App
 export { contextDb }

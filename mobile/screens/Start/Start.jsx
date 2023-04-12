@@ -13,7 +13,6 @@ export const StartScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.titleContainer}>
-                {/* <StarsRating /> */}
                 <Text style={styles.title}>Привіт, користувач!</Text>
                 <Text style={styles.subtitle}>Для продовження, увійди в обліковий запис</Text>
             </View>

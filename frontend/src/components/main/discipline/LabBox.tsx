@@ -1,6 +1,6 @@
 import {FC, useContext} from "react";
 import {contextDb} from "@/components/main/Main";
-import {Labs} from "@/components/main/Main";
+import {Labs} from "@/App";
 import dClasses from './Discipline.module.css'
 
 const LabBox: FC<Labs> = (data) => {

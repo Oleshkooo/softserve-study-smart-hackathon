@@ -6,6 +6,7 @@ import { DisciplineScreen } from './screens/Discipline/Discipline'
 import { ListOfDisciplinesScreen } from './screens/ListDisciplines/ListOfDisciplines'
 import { LoginScreen } from './screens/Login/Login'
 import { StartScreen } from './screens/Start/Start'
+
 const Stack = createNativeStackNavigator()
 
 const defaultScreenOptions = {

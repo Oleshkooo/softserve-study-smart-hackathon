@@ -1,0 +1,13 @@
+{
+  "hash": "c056e2b5",
+  "browserHash": "9a84ca48",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/.pnpm/react@18.2.0/node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "b7116eaf",
+      "needsInterop": true
+    }
+  },
+  "chunks": {}
+}

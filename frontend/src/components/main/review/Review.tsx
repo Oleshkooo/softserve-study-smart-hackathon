@@ -1,16 +1,12 @@
-import classes from './Review.module.css'
-import { useContext, useEffect, useState } from 'react'
-import { contextDb } from '../Main'
 import { putStudentRating } from '@/components/API'
+import { useContext } from 'react'
+import { contextDb } from '../Main'
+import classes from './Review.module.css'
 
 function Review() {
     const DataCtx = useContext(contextDb)
 
     function handleTeacherSubmit(e) {
-        e.preventDefault()
-
-        console.log(DataCtx?.teacherRating);
-
         e.preventDefault()
 
         const data = {
@@ -19,12 +15,21 @@ function Review() {
             labName: DataCtx?.selectedLab.name,
             rating: DataCtx?.selectedLab.rating,
             message: DataCtx?.selectedLab.message,
-            points: DataCtx?.teacherRating
-        }
+            points: DataCtx?.teacherRating,
+        }    
+
+        // let temp = DataCtx?.data;
+        // let indexD = DataCtx?.data?.disciplines.findIndex(e => e.teacherEmail === DataCtx?.selectedDiscipline.teacherEmail)
+        // let indexL = DataCtx?.data?.disciplines[indexD].labs.findIndex(e => e.name === DataCtx?.selectedLab.name)
+
+        // temp.disciplines[indexD].labs[indexL].rating = DataCtx?.studentRating
+        // temp.disciplines[indexD].labs[indexL].message = e.target.comment.value
+
+        // DataCtx?.setData(temp)
 
         putStudentRating(data)
-        .then(res => {})
-        .catch(err => {})
+            .then(res => {})
+            .catch(err => {})
     }
 
     function handleStudentSubmit(e) {
@@ -36,12 +41,21 @@ function Review() {
             labName: DataCtx?.selectedLab.name,
             rating: DataCtx?.studentRating,
             message: e.target.comment.value,
-            points: DataCtx?.selectedLab.points
+            points: DataCtx?.selectedLab.points,
         }
 
+        let temp = DataCtx?.data;
+        let indexD = DataCtx?.data?.disciplines.findIndex(e => e.teacherEmail === DataCtx?.selectedDiscipline.teacherEmail)
+        let indexL = DataCtx?.data?.disciplines[indexD].labs.findIndex(e => e.name === DataCtx?.selectedLab.name)
+
+        temp.disciplines[indexD].labs[indexL].rating = DataCtx?.studentRating
+        temp.disciplines[indexD].labs[indexL].message = e.target.comment.value
+
+        DataCtx?.setData(temp)
+
         putStudentRating(data)
-        .then(res => {})
-        .catch(err => {})
+            .then(res => {})
+            .catch(err => {})
     }
 
     return (
@@ -61,14 +75,16 @@ function Review() {
                                         : classes.off
                                 }`}
                                 onClick={() => {
-                                    if (DataCtx?.data.perms === 'teacher') DataCtx?.setTeacherRating(index)
+                                    if (DataCtx?.data.perms === 'teacher')
+                                        DataCtx?.setTeacherRating(index)
                                 }}
                                 onMouseEnter={() => {
-                                    if (DataCtx?.data.perms === 'teacher') DataCtx?.setTeacherHover(index)
+                                    if (DataCtx?.data.perms === 'teacher')
+                                        DataCtx?.setTeacherHover(index)
                                 }}
                                 onMouseLeave={() => {
                                     if (DataCtx?.data.perms === 'teacher')
-                                    DataCtx?.setTeacherHover(DataCtx?.teacherRating)
+                                        DataCtx?.setTeacherHover(DataCtx?.teacherRating)
                                 }}
                             >
                                 <span>&#9733;</span>
@@ -77,11 +93,9 @@ function Review() {
                     })}
                 </span>
                 {DataCtx?.data.perms === 'teacher' ? (
-                    <>
-                        <button className={classes.button} type={'submit'}>
-                            Оцінити
-                        </button>
-                    </>
+                    <button className={classes.button} type={'submit'}>
+                        Оцінити
+                    </button>
                 ) : (
                     <></>
                 )}
@@ -90,7 +104,7 @@ function Review() {
             <form className={classes.form} onSubmit={handleStudentSubmit}>
                 <span>
                     {[...Array(5)].map((star, index) => {
-                        index += 1
+                        index++
                         return (
                             <button
                                 type="button"
@@ -101,10 +115,12 @@ function Review() {
                                         : classes.off
                                 } ${DataCtx?.data.perms === 'student' ? classes.buttonHover : ''}`}
                                 onClick={() => {
-                                    if (DataCtx?.data.perms === 'student') DataCtx?.setStudentRating(index)
+                                    if (DataCtx?.data.perms === 'student')
+                                        DataCtx?.setStudentRating(index)
                                 }}
                                 onMouseEnter={() => {
-                                    if (DataCtx?.data.perms === 'student') DataCtx?.setStudentHover(index)
+                                    if (DataCtx?.data.perms === 'student')
+                                        DataCtx?.setStudentHover(index)
                                 }}
                                 onMouseLeave={() => {
                                     if (DataCtx?.data.perms === 'student')
@@ -130,13 +146,11 @@ function Review() {
                         </button>
                     </>
                 ) : (
-                    <>
-                        <p>
-                            {DataCtx?.selectedLab.message
-                                ? `Коментар студента: ${DataCtx?.selectedLab.message}`
-                                : `Студент ще не дав коментаря на це завдання`}
-                        </p>
-                    </>
+                    <p>
+                        {DataCtx?.selectedLab.message
+                            ? `Коментар студента: ${DataCtx?.selectedLab.message}`
+                            : `Студент ще не дав коментаря на це завдання`}
+                    </p>
                 )}
             </form>
         </div>
