@@ -1,4 +1,4 @@
-import type { RequestHandler } from 'express'
+import { type RequestHandler } from 'express'
 
 import { ApiError, STATUS } from '@/api/responses'
 import { UserModel } from '@/Database/models/User'
@@ -18,6 +18,15 @@ export const post: RequestHandler = async (req, res) => {
             const response = new ApiError({
                 status: STATUS.BAD_REQUEST,
                 message: 'Missing required fields',
+            })
+            return res.status(response.status).send(response)
+        }
+
+        const userExists = await UserModel.exists({ email })
+        if (userExists) {
+            const response = new ApiError({
+                status: STATUS.BAD_REQUEST,
+                message: 'Email already in use',
             })
             return res.status(response.status).send(response)
         }
