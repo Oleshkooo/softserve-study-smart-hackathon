@@ -7,7 +7,8 @@ const StudentBox: FC<IUser> = ({data}) => {
 
     function handleChangeStudent() {
         DataCtx?.setSelectedStudent(data)
-        DataCtx?.setSelectedDiscipline(data.disciplines.find(e => e.teacherEmail === DataCtx.data.email))
+        DataCtx?.setSelectedDiscipline(data.disciplines.find(e => e.teacherEmail === DataCtx?.data.email))
+        console.log(data.disciplines);
     }
 
     return(
