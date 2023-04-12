@@ -2,11 +2,13 @@ import { Schema, model, models } from 'mongoose'
 
 interface ILab {
     name: string
+    rating: number
+    message: string
 }
 
-interface IDiscipline {
+export interface IDiscipline {
     name: string
-    teachers: string
+    teacher: string
     teacherEmail: string
     labs: ILab[]
 }
@@ -30,14 +32,22 @@ const LabSchema = new Schema<ILab>({
         type: String,
         required: true,
     },
+    rating: {
+        type: Number,
+        required: true,
+    },
+    message: {
+        type: String,
+        required: true,
+    },
 })
 
-const DisciplineSchema = new Schema<IDiscipline>({
+export const DisciplineSchema = new Schema<IDiscipline>({
     name: {
         type: String,
         required: true,
     },
-    teachers: {
+    teacher: {
         type: String,
         required: true,
     },

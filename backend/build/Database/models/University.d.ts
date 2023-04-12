@@ -21,14 +21,16 @@
 /// <reference types="mongoose/types/utility" />
 /// <reference types="mongoose/types/validation" />
 /// <reference types="mongoose/types/virtuals" />
-/// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
+import { Schema } from 'mongoose';
 interface ILab {
     name: string;
+    rating: number;
+    message: string;
 }
-interface IDiscipline {
+export interface IDiscipline {
     name: string;
-    teachers: string;
+    teacher: string;
     teacherEmail: string;
     labs: ILab[];
 }
@@ -44,5 +46,10 @@ export interface IUniversity {
     abbr: string;
     specialities: ISpecialitie[];
 }
+export declare const DisciplineSchema: Schema<IDiscipline, import("mongoose").Model<IDiscipline, any, any, any, import("mongoose").Document<unknown, any, IDiscipline> & Omit<IDiscipline & {
+    _id: import("mongoose").Types.ObjectId;
+}, never>, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, IDiscipline, import("mongoose").Document<unknown, {}, import("mongoose").FlatRecord<IDiscipline>> & Omit<import("mongoose").FlatRecord<IDiscipline> & {
+    _id: import("mongoose").Types.ObjectId;
+}, never>>;
 export declare const UniversityModel: import("mongoose").Model<any, {}, {}, {}, any, any>;
 export {};
