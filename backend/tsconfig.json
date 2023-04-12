@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": ["ESNext", "DOM"],
+        "moduleResolution": "node",
+        "declaration": true,
+        "outDir": "./build",
+        "rootDir": "src",
+        "sourceMap": false,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["src", "src/**/*"],
+    "exclude": ["node_modules", "build", "dist", "example", "rollup.config.js", "rollup.config.mjs"]
+}
